@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { API_URL, API_TOKEN } from '../consts/index'
+import { API_URL } from '../consts/index'
 import Card from './Card';
+import '../extensions/axiosHelper'
 
 const CoronaForCountry = () => {
     const [data, setData] = useState([]);
@@ -10,13 +11,7 @@ const CoronaForCountry = () => {
 
     const fetchData = async () => {
         setLoading(true);
-
-        const response = await axios.get(`${API_URL}/countriesData?country=${query}`, {
-            headers: {
-                'authorization': API_TOKEN
-            }
-        });
-
+        const response = await axios.get(`${API_URL}/countriesData?country=${query}`);
         setLoading(false);
         setData(response.data.result);
     }

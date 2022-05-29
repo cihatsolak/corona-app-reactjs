@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
 import { API_URL, API_TOKEN } from '../consts/index'
+import '../extensions/axiosHelper'
 
 const CoronaForContinent = () => {
 
@@ -38,11 +39,7 @@ const CoronaForContinent = () => {
 
     const fetchData = async () => {
         setLoading(true)
-        const response = await axios.get(`${API_URL}/continentData`, {
-            headers: {
-                authorization: API_TOKEN
-            }
-        })
+        const response = await axios.get(`${API_URL}/continentData`)
         setLoading(false)
         setData(response.data.result)
     }

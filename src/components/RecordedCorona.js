@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
-import { API_URL, API_TOKEN } from '../consts/index'
+import { API_URL } from '../consts/index'
+import '../extensions/axiosHelper'
 
 const RecordedCorona = () => {
     const [loading, setLoading] = useState(false);
@@ -8,11 +9,7 @@ const RecordedCorona = () => {
 
     const fetchData = async () => {
         setLoading(true)
-        const response = await axios.get(`${API_URL}/totalData`, {
-            headers: {
-                authorization: API_TOKEN
-            }
-        })
+        const response = await axios.get(`${API_URL}/totalData`);
         setLoading(false)
         setData(response.data.result)
     }
