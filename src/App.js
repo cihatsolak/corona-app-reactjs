@@ -2,19 +2,27 @@ import { useState } from "react";
 import Header from "./components/Header";
 import Card from "./components/Card";
 import CoronaForCountry from "./components/CoronaForCountry";
+import RecordedCorona from "./components/RecordedCorona";
 
 function App() {
-  const [_key, setKey] = useState(1);
+  const [key, setKey] = useState(1);
 
   return (
     <>
-      <Header onMenuChange={(key) => {
-        setKey(key);
+      <Header onMenuChange={(_key) => {
+        setKey(_key);
       }} />
 
       <div className="md:container md:mx-auto p-8 h-screen page-content">
         {/* <Card /> */}
-        <CoronaForCountry />
+        
+        {
+          key === 1 && <CoronaForCountry />
+        }
+
+        {
+          key === 2 && <RecordedCorona />
+        }
       </div>
     </>
   );
