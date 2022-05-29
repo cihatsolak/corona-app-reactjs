@@ -1,8 +1,13 @@
+import { useState } from "react";
 import Header from "./components/Header";
 
 function App() {
+  const [_key, setKey] = useState(1);
+  
   return (
-    <Header />
+    <Header onMenuChange={(key) => {
+      setKey(key);
+    }} />
   );
 }
 
