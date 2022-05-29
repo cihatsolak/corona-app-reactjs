@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { CoronaImage } from '../consts/index'
 
-const Card = ({ country, totalCase, totalRecovered, totalDeaths }) => {
+const Card = ({ coronaInformation }) => {
+    const { country, totalCase, totalRecovered, totalDeaths } = coronaInformation;
     return (
         <div className='max-w-sm rounded overflow-hidden shadow-md cursor-pointer hover:shadow-lg hover:scale-105 transition-all'>
             <img className='w-full' src={CoronaImage} alt="country" />
@@ -27,10 +28,7 @@ const Card = ({ country, totalCase, totalRecovered, totalDeaths }) => {
 }
 
 Card.propTypes = {
-    country: PropTypes.string.isRequired,
-    totalCase: PropTypes.string.isRequired,
-    totalRecovered: PropTypes.string.isRequired,
-    totalDeaths: PropTypes.string.isRequired
+    coronaInformation: PropTypes.object.isRequired
 }
 
 Card.defaultProps = {

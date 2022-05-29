@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "./components/Header";
 import Card from "./components/Card";
+import CoronaForCountry from "./components/CoronaForCountry";
 
 function App() {
   const [_key, setKey] = useState(1);
@@ -12,7 +13,8 @@ function App() {
       }} />
 
       <div className="md:container md:mx-auto p-8 h-screen page-content">
-        <Card />
+        {/* <Card /> */}
+        <CoronaForCountry />
       </div>
     </>
   );
